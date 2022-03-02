@@ -40,10 +40,6 @@ function! ale#fixers#isort#FixForVersion(buffer, version) abort
         call extend(l:cmd, ['run', 'isort'])
     endif
 
-    if ale#semver#GTE(a:version, [5, 7, 0])
-        call add(l:cmd, '--filename %s')
-    endif
-
     let l:options = ale#Var(a:buffer, 'python_isort_options')
 
     if !empty(l:options)
